@@ -44,7 +44,7 @@
         test('current year should be selected', function() {
           var currentYear = new Date().getFullYear();
           var selectedValue = pennantsSeason.querySelector('iron-pages');
-          expect(selectedValue).to.have.property('selected').and.equal('0');
+          expect(selectedValue).to.have.property('selected').and.equal(0);
         });
 
         test('2 tabs are displayed', function(done) {
@@ -62,8 +62,9 @@
             var tabs = pennantsSeason.querySelectorAll('paper-tab');
             var title = pennantsSeason.querySelector('iron-pages .iron-selected');
             expect(title.innerText.trim()).to.equal('2017 Season');
-            var tab2 = tabs[1];
-            tab2.click();
+            var tab = tabs[1];
+            tab.click();
+            title = pennantsSeason.querySelector('iron-pages .iron-selected');
             expect(title.innerText.trim()).to.equal('2016 Season');
             done();
           });
