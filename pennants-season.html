@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+
+<!--
+`pennants-season`
+A list of seasons for a pennants
+
+@demo demo/index.html
+-->
+
+<dom-module id="pennants-season">
+  <template strip-whitespace>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <slot>
+      <paper-tabs selected="{{selectedValue}}" id="seasonTabs">
+        <template is="dom-repeat" items="{{seasons}}" as="season">
+          <paper-tab>
+            <a href="#" class="season-link">
+              <span>[[season.name]]</span>
+            </a>
+          </paper-tab>
+        </template>
+      </paper-tabs>
+      <iron-pages selected="{{selectedValue}}" id="seasonPages">
+        <template is="dom-repeat" items="{{seasons}}" as="season">
+          <div>
+            <h1>
+              <span>[[season.name]]</span>
+            </h1>
+          </div>
+        </template>
+      </iron-pages>
+    </slot>
+  </template>
+
+  <script src="pennants-season.js"></script>
+</dom-module>
